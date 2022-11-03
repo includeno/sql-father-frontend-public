@@ -189,7 +189,7 @@ const GenerateResultCard: React.FC<Props> = (props) => {
           key: 'javaCode',
           children: (
             <>
-              <Collapse defaultActiveKey={['1', '2']}>
+              <Collapse defaultActiveKey={['1', '2','3','4','5']}>
                 <Collapse.Panel
                   header="实体代码"
                   key="1"
@@ -230,6 +230,89 @@ const GenerateResultCard: React.FC<Props> = (props) => {
                 >
                   <CodeEditor value={result.javaObjectCode} language="java" />
                 </Collapse.Panel>
+                  <Collapse.Panel
+                      header="MybatisPlus Mapper代码"
+                      key="3"
+                      className="code-collapse-panel"
+                      extra={
+                          <Button
+                              size="small"
+                              icon={<CopyOutlined />}
+                              onClick={(e) => {
+                                  copy(result?.javaMybatisPlusMapperCode);
+                                  e.stopPropagation();
+                                  message.success('已复制到剪切板');
+                              }}
+                          >
+                              复制
+                          </Button>
+                      }
+                  >
+                      <CodeEditor value={result.javaMybatisPlusMapperCode} language="java" />
+                  </Collapse.Panel>
+
+                  <Collapse.Panel
+                      header="MybatisPlus Service代码"
+                      key="4"
+                      className="code-collapse-panel"
+                      extra={
+                          <Button
+                              size="small"
+                              icon={<CopyOutlined />}
+                              onClick={(e) => {
+                                  copy(result?.javaMybatisPlusServiceCode);
+                                  e.stopPropagation();
+                                  message.success('已复制到剪切板');
+                              }}
+                          >
+                              复制
+                          </Button>
+                      }
+                  >
+                      <CodeEditor value={result.javaMybatisPlusServiceCode} language="java" />
+                  </Collapse.Panel>
+
+                  <Collapse.Panel
+                      header="MybatisPlus Service Impl代码"
+                      key="5"
+                      className="code-collapse-panel"
+                      extra={
+                          <Button
+                              size="small"
+                              icon={<CopyOutlined />}
+                              onClick={(e) => {
+                                  copy(result?.javaMybatisPlusServiceImplCode);
+                                  e.stopPropagation();
+                                  message.success('已复制到剪切板');
+                              }}
+                          >
+                              复制
+                          </Button>
+                      }
+                  >
+                      <CodeEditor value={result.javaMybatisPlusServiceImplCode} language="java" />
+                  </Collapse.Panel>
+
+                  <Collapse.Panel
+                      header="MybatisPlus Controller代码"
+                      key="6"
+                      className="code-collapse-panel"
+                      extra={
+                          <Button
+                              size="small"
+                              icon={<CopyOutlined />}
+                              onClick={(e) => {
+                                  copy(result?.javaMybatisPlusControllerCode);
+                                  e.stopPropagation();
+                                  message.success('已复制到剪切板');
+                              }}
+                          >
+                              复制
+                          </Button>
+                      }
+                  >
+                      <CodeEditor value={result.javaMybatisPlusControllerCode} language="java" />
+                  </Collapse.Panel>
               </Collapse>
             </>
           ),
@@ -267,6 +350,39 @@ const GenerateResultCard: React.FC<Props> = (props) => {
             </>
           ),
         },
+          {
+              label: `固定代码`,
+              key: 'fixedCode',
+              children: (
+                  <>
+                      <Collapse defaultActiveKey={['1']}>
+                          <Collapse.Panel
+                              header="固定代码"
+                              key="1"
+                              className="code-collapse-panel"
+                              extra={
+                                  <Button
+                                      size="small"
+                                      icon={<CopyOutlined />}
+                                      onClick={(e) => {
+                                          copy(result?.typescriptTypeCode);
+                                          e.stopPropagation();
+                                          message.success('已复制到剪切板');
+                                      }}
+                                  >
+                                      复制
+                                  </Button>
+                              }
+                          >
+                              <CodeEditor
+                                  value={result.typescriptTypeCode}
+                                  language="typescript"
+                              />
+                          </Collapse.Panel>
+                      </Collapse>
+                  </>
+              ),
+          },
       ]}
     />
   ) : (

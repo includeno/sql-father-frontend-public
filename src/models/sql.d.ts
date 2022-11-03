@@ -37,6 +37,10 @@ interface GenerateVO {
   javaEntityCode: string;
   javaObjectCode: string;
   typescriptTypeCode: string;
+  javaMybatisPlusMapperCode:string;
+  javaMybatisPlusServiceCode:string;
+  javaMybatisPlusServiceImplCode:string;
+  javaMybatisPlusControllerCode:string;
 }
 
 /**
